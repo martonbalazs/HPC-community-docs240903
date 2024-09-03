@@ -24,7 +24,7 @@ We use maple/xmaple as an example but comsol, magma, math/mathematica, etc work 
 1. Connect to the login node, as described [here](https://www.acrc.bris.ac.uk/protected/hpc-docs/connecting/index.html). For this you don't need X11 forwarding.
 2. Once you are on the login node, do
    ```console
-   $ srun --account=MATHXXXXXX --partition=magma --mem=1G --time=00:01:00 --pty bash -i
+   $ srun --account=MATHXXXXXX --partition=magma --mem=1G --time=00:01:00 --mpi=pmi2 --pty bash -i
    ```
    to get an interactive session on one of our ringfenced nodes for quick interactive sessions. Login nodes are intended for small scale interactive work. This command allows us to create an interactive session on a compute node for more intensive interactive work. Notice that the above gives you a terminal for 1 minute with 1 GB memory and the default number of CPU cores (1) -- please change this to specify the time and resources you need. Also, remember to save your work often as your terminal will be killed after the requested time.
    :::{tip}
@@ -56,7 +56,7 @@ We use maple/xmaple as an example but comsol, magma, math/mathematica, etc work 
    In some cases you may need to wait for this allocation to start (e.g., if not using the "magma" partition).
 3. Do
    ```console
-   $ ssh -X bp1-compute169
+   $ ssh -Y bp1-compute169
    ```
    (using whichever node was allocated to you in the previous step); tab completion works here too. Then
    ```console
